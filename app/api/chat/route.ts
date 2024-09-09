@@ -12,7 +12,7 @@ export async function POST(req: Request) {
   const result = await streamText({
     model: bedrock('anthropic.claude-3-haiku-20240307-v1:0'),
     messages: convertToCoreMessages(messages),
-    async onFinish({ text, toolCalls, toolResults, usage, finishReason }) {
+    async onFinish({ text }) {
       console.log(text);
       // implement your own logic here, e.g. for storing messages
       // or recording token usage
